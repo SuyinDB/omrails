@@ -3,8 +3,11 @@
 <p>
 	<strong> Email address: </strong> <%= @user.email %>
 </p>
+<p>
+	<strong> Date joined: </strong> <%= @user.created_at %>
+</p>
 </br>
-<h4> <%= @user.name %>'s Pins</h4>
+<h4> <%= @user.name %>'s Wish Board</h4>
 <div id="pins">
   <%= render @pins %>
 </div>
