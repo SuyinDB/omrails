@@ -1,9 +1,21 @@
-<div class="hero-unit">
-		<h1>Makers' Workshop</h1>
-		<p>
-			Stop searching, start finding.
-		</p>
-		<p> 
-			<a href="#" class="btn btn-large btn-primary">Sign Up Now</a>
-		</p>
-</div>
+<% if user_signed_in? %>
+	<div class="hero-unit">
+			<h1>Makers' Workshop</h1>
+			<p>
+				Stop searching, start finding.
+			</p>
+	</div>
+
+<% else %>
+	
+	<div class="hero-unit">
+			<h1>Makers' Workshop</h1>
+			<p>
+				Stop searching, start finding.
+			</p>
+			<p> 
+				<%= link_to "Sign Up Now!", new_user_registration_path, class: "btn btn-primary btn-large" %>
+			</p>
+	</div>
+
+<% end %>

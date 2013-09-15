@@ -1,9 +1,11 @@
-$baseFontFamily: Montserrat Alternates;
-@import url(http://fonts.googleapis.com/css?family=Montserrat+Alternates);
+$baseFontFamily: Oxygen;
+@import url(http://fonts.googleapis.com/css?family=Oxygen);
 
 $navbarBackgroundHighlight: white;
 $navbarBackground: white;
 $btnPrimaryBackground: blue;
+$textColor: #080808 ;
+
 
 @import 'bootstrap';
 
@@ -17,6 +19,11 @@ body {
 	    @include box-shadow(none !important);
 	    border: 0;
 	}	
+
+	.hero-unit {
+		color: $white;
+		background-image: url(http://cdn.morguefile.com/imageData/public/files/p/photojock/preview/fldr_2008_11_10/file000990987093.jpg);
+	}
 
 	.footer {
 		margin-top:50px;
