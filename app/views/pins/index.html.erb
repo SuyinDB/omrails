@@ -1,7 +1,16 @@
+
 <%= render 'pages/home' %>
+
+<% if user_signed_in? %>
 
 <div id="pins">
    <%= render @pins %>
 </div>
 
 <%= will_paginate @pins %>
+
+<% else %>
+
+<%= render 'pages/about' %>
+
+<% end %>

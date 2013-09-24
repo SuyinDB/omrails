@@ -1,15 +1,21 @@
 <h1><%= @user.name %></h1>
 </br>
-<p>
-	<strong> Email address: </strong> <%= @user.email %>
-</p>
-<p>
-	<strong> Date joined: </strong> <%= @user.created_at %>
-</p>
+	<% if current_user == @user %>
+		<p>
+			<strong> My email: </strong> <%= @user.email %>
+		</p>
+		<p>
+			<strong> Date joined: </strong> <%= @user.created_at %>
+		</p>
+
 </br>
-<h4> <%= @user.name %>'s Wish Board</h4>
-<div id="pins">
-  <%= render @pins %>
-</div>
+
+<h4> My Wish Board</h4>
+
+<% end %>
+
+	<div id="pins">
+	  <%= render @pins %>
+	</div>
 
 <%= will_paginate @pins %>

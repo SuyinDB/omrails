@@ -9,7 +9,8 @@
 			  pinned by <%= @pin.user.name %>
 			</p>
 			<% if current_user == @pin.user %>
-			<%= link_to 'Edit', edit_pin_path(@pin) %> |
+			<%= link_to 'Edit', edit_pin_path(@pin) %>
+			<%= link_to 'Remove', @pin, method: :delete, data: { confirm: 'Are you sure?' } %>
 			<% end %>
 			<%= link_to 'Back', pins_path %>
 		</div>

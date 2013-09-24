@@ -1,5 +1,5 @@
 class PinsController < ApplicationController
-  before_filter :authenticate_user!, except: [:index, :show]
+  before_filter :authenticate_user!, except: [:index, :show, :inspiration]
 
   # GET /pins
   # GET /pins.json
@@ -8,6 +8,17 @@ class PinsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
+      format.json { render json: @pins }
+    end
+  end
+
+# GET /pins/inspiration
+  # GET /pins/inspiration.json
+  def inspiration
+    @pins = Pin.order("created_at desc").page(params[:page]).per_page(20)
+
+    respond_to do |format|
+      format.html # inspiration.html.erb
       format.json { render json: @pins }
     end
   end
