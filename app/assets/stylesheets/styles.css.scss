@@ -1,29 +1,24 @@
+/*colour palette is http://www.colourlovers.com/palette/793931/Nightly_Cares*/
+
 $baseFontFamily: Oxygen;
 @import url(http://fonts.googleapis.com/css?family=Oxygen);
 
-$navbarBackgroundHighlight: white;
-$navbarBackground: white;
-$btnPrimaryBackground: #99CCFF;
-$textColor: #080808 ;
+$navbarInverseBackground: #333333;
+$navbarInverseBrandColor: #9EB9C3;
+$navbarInverseLinkColor: #FFFFFF;
+$navbarInverseLinkColorHover: #BBDCE8;
+$btnPrimaryBackground: #9EB9C3;
+$textColor: #333333;
+$bodyBackground: #FFFFFF;
 
 
 @import 'bootstrap';
 
-body {
-	padding-top: 60px;
-
-}
-
 @import 'bootstrap-responsive';
 
-	.navbar-inner{
-	    @include box-shadow(none !important);
-	    border: 0;
-	}	
-
 	.hero-unit {
-		color: #080808;
-		background-color: $grayLight;
+		color: #FFFFFF;
+		background-color: #BBDCE8;
 		/*background-image: url(http://cdn.morguefile.com/imageData/public/files/p/photojock/preview/fldr_2008_11_10/file000990987093.jpg);*/
 	}
 

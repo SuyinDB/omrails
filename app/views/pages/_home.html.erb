@@ -1,20 +1,15 @@
 <% if user_signed_in? %>
 	<div class="hero-unit">
-			<h1>foundrie</h1>
-			<p>
-				Stop searching, start finding.
-			</p>
+			<p><h1>Stop searching, start finding.</h1></p>
 	</div>
 
 <% else %>
 	
 	<div class="hero-unit">
-			<h1>foundrie</h1>
-			<p>
-				Stop searching, start finding.
-			</p>
+			<p><h1>Stop searching, start finding.</h1></p>
+			</br>
 			<p> 
-				<%= link_to "Sign Up Now!", new_user_registration_path, class: "btn btn-primary btn-large" %>
+				<%= link_to "Sign Up", new_user_registration_path, class: "btn btn-primary btn-large" %>
 			</p>
 	</div>
 
