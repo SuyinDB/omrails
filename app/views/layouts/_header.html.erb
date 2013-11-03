@@ -17,6 +17,7 @@
                     </ul>
                     <ul class="nav pull-right">
                         <% if user_signed_in? %>
+                        <li><%= link_to 'My Conversations', :conversations %></li>
                         <li><%= link_to 'Add Wish +',  new_pin_path %></li>
                         <li><%= link_to 'My Wishes',  users_show_path  %></li>
                         <li><%= link_to 'Edit Profile',  edit_user_registration_path %></li>

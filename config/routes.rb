@@ -1,17 +1,31 @@
 Omrails::Application.routes.draw do
+  resources :conversations
+
+
   get "users/show"
 
   resources :pins
 
 
   devise_for :users
+  resources :conversations, only: [:index, :show, :new, :create] do
+    member do
+      post :reply
+      post :trash
+      post :untrash
+    end
+  end
+
+
   match 'users/:id' => 'users#show', as: :user
 
   get '/inspiration' => 'pins#inspiration'
-
   get 'about' => 'pages#about'
-
   root :to => 'pins#index'
+
+
+
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

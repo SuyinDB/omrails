@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+
+	acts_as_messageable
+
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
@@ -10,4 +13,5 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
 
   has_many :pins, :dependent => :destroy
+  
 end
