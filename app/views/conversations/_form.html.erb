@@ -1,9 +1,12 @@
+<div class="well" span=12>
 <%= simple_form_for :conversation, url: :conversations do |f| %>
-  <%= f.input :recipients %>
-  <%= f.input :subject %>
-  <%= f.input :body %>
+  <%= f.input :recipients, input_html: { :style=> 'width: 1100px'} %>
+  <%= f.input :subject, input_html: { :style=> 'width: 1100px'} %>
+  <%= f.input :body , as: :text, input_html: { rows: "8", :style=> 'width: 1100px'} %>
+ </div>
   <div class="form-actions">
-    <%= f.button :submit, class: 'btn-primary' %>
-    <%= submit_tag 'Cancel', type: :reset, class: 'btn btn-danger' %>
+    <%= f.button :submit, 'Send message', class: 'btn-primary' %>
+    <%= submit_tag 'Clear', type: :reset, class: 'btn btn-danger' %>
+    <%= link_to 'Back to conversations', :conversations, class: 'btn btn-primary' %>
   </div>
 <% end %>

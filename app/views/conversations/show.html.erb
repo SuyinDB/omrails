@@ -1,15 +1,13 @@
 <h1>
   <%= conversation.subject %>
 </h1>
-<ul>
-  <%= content_tag_for(:li, conversation.receipts_for(current_user)) do |receipt| %>
+  <%= content_tag_for(:div, conversation.receipts_for(current_user), :class=> "well") do |receipt| %>
     <% message = receipt.message %>
-    <h3>
-      <%= message.subject %>
-    </h3>
+    <p>
+      <i class="icon-user"> </i> <b> <%= message.sender.username %> wrote.. </b>
+    </p>
     <p>
       <%= message.body %>
     </p>
   <% end %>
-</ul>
 <%= render 'messages/form', conversation: conversation %>

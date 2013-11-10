@@ -1,17 +1,24 @@
 <h1>Conversations</h1>
-
+</br>
+<%= link_to 'Start New Conversation', :new_conversation, class: "btn btn-primary btn-large" %>
+</br>
+</br>
 <div class='well'>
 <h2>Inbox</h2>
 <ul>
   <%= render mailbox.inbox %>
 </ul>
 </div>
+<div class='well'>
 <h2>Sentbox</h2>
 <ul>
   <%= render mailbox.sentbox %>
 </ul>
+</div>
+<div class='well'>
 <h2>Trash</h2>
 <ul>
   <%= render mailbox.trash %>
 </ul>
-<%= link_to 'Start Conversation', :new_conversation %>
+</div>
+
