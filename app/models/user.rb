@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  validates :name, :username, :email, :password, :password_confirmation, presence: true
+  validates :username, uniqueness: { case_sensitive: false }
 
 	acts_as_messageable
 
@@ -9,7 +11,7 @@ class User < ActiveRecord::Base
          :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :name, :email, :password, :password_confirmation, :remember_me
+  attr_accessible :username, :name, :email, :password, :password_confirmation, :remember_me
   # attr_accessible :title, :body
 
   has_many :pins, :dependent => :destroy
