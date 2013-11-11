@@ -1,6 +1,6 @@
 <div class="well" span=12>
 <%= simple_form_for :message, url: [:reply, conversation] do |f| %>
-  <%= f.input :body, label: 'Reply', as: :text, input_html: { rows: "8", :style=> 'width: 1100px'} %>
+  <%= f.input :body, label: 'Reply', as: :text, input_html: { rows: "8", :style=> 'width: 99%'} %>
  </div> 
   <div class="form-actions">
     <%= f.button :submit, 'Send message', class: 'btn-primary' %>

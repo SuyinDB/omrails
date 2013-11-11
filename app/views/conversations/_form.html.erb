@@ -1,8 +1,8 @@
 <div class="well" span=12>
 <%= simple_form_for :conversation, url: :conversations do |f| %>
-  <%= f.input :recipients, input_html: { :style=> 'width: 1100px'} %>
-  <%= f.input :subject, input_html: { :style=> 'width: 1100px'} %>
-  <%= f.input :body , as: :text, input_html: { rows: "8", :style=> 'width: 1100px'} %>
+  <%= f.input :recipients, input_html: { :style=> 'width: 99%'} %>
+  <%= f.input :subject, input_html: { :style=> 'width: 99%'} %>
+  <%= f.input :body , as: :text, input_html: { rows: "8", :style=> 'width: 99%'} %>
  </div>
   <div class="form-actions">
     <%= f.button :submit, 'Send message', class: 'btn-primary' %>
