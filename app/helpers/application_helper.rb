@@ -1,9 +1,17 @@
 module ApplicationHelper
 
 	def other_conversation_people(conversation)
-		other_people = conversation.messages.reject { |m| m.sender == current_user }
+		
+		# find everyone but the current users messages
+		other_people = conversation.recipients.keep_if { |m| m != current_user }
+
+
 		if other_people.any?
-			other_people.map { |m| m.sender.name }.uniq.to_sentence
+			# a list of all the other people's messages
+			# then map them to their name
+			# then getting unique ones
+			# then putting it to a nice sentence (to_sentence is part of rails)
+			other_people.map { |m| m.username }.uniq.to_sentence
 		else
 			"myself"
 		end

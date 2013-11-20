@@ -16,5 +16,9 @@ class Pin < ActiveRecord::Base
   	self.image = URI.parse(url_value) unless url_value.blank?
   	super
   end
+
+  def to_param
+    "#{id}-#{description.parameterize}"
+  end
   
 end

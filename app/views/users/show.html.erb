@@ -1,7 +1,7 @@
 <h1><%= @user.name %></h1>
 </br>
 <p>
-	<%= link_to 'Send them a message', :new_conversation, recipients: @user.username, class: "btn btn-primary" %>  HOW DO I GET THIS BUTTON TO WORK?!
+	<%= link_to 'Message ' + @user.name, new_conversation_path(:recipients => @user.username), class: "btn btn-primary" %> 
 </p>
 
 	<% if current_user == @user %>

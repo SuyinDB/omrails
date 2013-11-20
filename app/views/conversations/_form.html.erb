@@ -1,8 +1,11 @@
 <div class="well" span=12>
-<%= simple_form_for :conversation, url: :conversations do |f| %>
-  <%= f.input :recipients, input_html: { :style=> 'width: 99%'} %>
-  <%= f.input :subject, input_html: { :style=> 'width: 99%'} %>
-  <%= f.input :body , as: :text, input_html: { rows: "8", :style=> 'width: 99%'} %>
+<%= simple_form_for :conversation, url: conversations_path(recipients: params[:recipients]) do |f| %>
+  <%# f.input :recipients, input_html: { :style=> 'width: 99%'} %>
+
+  <%= f.simple_fields_for :message do |fm| %>
+  	<%= fm.input :subject, input_html: { :style=> 'width: 99%'} %>
+  	<%= fm.input :body , as: :text, input_html: { rows: "8", :style=> 'width: 99%'} %>
+  <% end %>
  </div>
   <div class="form-actions">
     <%= f.button :submit, 'Send message', class: 'btn-primary' %>

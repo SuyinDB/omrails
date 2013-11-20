@@ -19,6 +19,9 @@ Omrails::Application.routes.draw do
 
   match 'users/:id' => 'users#show', as: :user
 
+# # testing this line.... delete if doesn't work!
+#   match 'conversations/new/:username' => 'conversations#new', as: :newmessage
+
   get '/inspiration' => 'pins#inspiration'
   get 'about' => 'pages#about'
   root :to => 'pins#index'

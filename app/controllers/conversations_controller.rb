@@ -2,14 +2,27 @@ class ConversationsController < ApplicationController
   before_filter :authenticate_user!
   helper_method :mailbox, :conversation
 
+  def new
+    @conversation = Conversation.new
+    @conversation.messages.build
+
+    @to_user = User.find_by_username(params[:recipients])
+  end
+
   def create
-    recipient_usernames = conversation_params(:recipients).split(',')
-    recipients = User.where(username: recipient_usernames).all
 
-    conversation = current_user.
-      send_message(recipients, *conversation_params(:body, :subject)).conversation
+    @to_user = User.find_by_username(params[:recipients])
+    @subject = params[:conversation][:message][:subject]
+    @body = params[:conversation][:message][:body]
 
-    redirect_to conversation
+    @message = current_user.send_message(@to_user, @body, @subject)
+
+    if @message
+      flash[:success] = "Sent message"
+      redirect_to @message.conversation
+    else
+      render "new"
+    end
   end
 
   def reply
