@@ -1,22 +1,43 @@
-<h1><%= @user.name %></h1>
-</br>
-<p>
-	<%= link_to 'Message ' + @user.name, new_conversation_path(:recipients => @user.username), class: "btn btn-primary" %> 
-</p>
 
-	<% if current_user == @user %>
-		<p>
-			<strong> My email: </strong> <%= @user.email %>
-		</p>
-		<p>
-			<strong> Date joined: </strong> <%= @user.created_at %>
-		</p>
+<section id="profilehead">
+	<div class="row">
+		<div class="span3">
+			<h1><%= if @user.avatar?
+								image_tag @user.avatar 
+							else
+								image_tag "no-image.png"
+   						end %></h1>
+		</div>
+
+		<div class="span9">
+			<%if current_user != @user %>
+				<h2><%= @user.name %></h2>
+				<p>
+					<%= link_to 'Message ' + @user.name, new_conversation_path(:recipients => @user.username), class: "btn btn-primary" %> 
+				</p>
+
+			<% else %>
+				<h2>My Profile</h2>
+				<p>
+					<strong> My email: </strong> <%= @user.email %>
+				</p>
+				<p>
+					<strong> Date joined: </strong> <%= @user.created_at.to_formatted_s(:long) %>
+				</p>
+
+			<% end %>
+
+		</div>
+	</div>
+</section>
+
+
+
+
 
 </br>
 
 <h4> My Wish Board</h4>
-
-<% end %>
 
 	<div id="pins">
 	  <%= render @pins %>
