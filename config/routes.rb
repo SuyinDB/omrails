@@ -7,7 +7,7 @@ Omrails::Application.routes.draw do
   resources :pins
 
 
-  devise_for :users
+  devise_for :users, :controllers => { :registrations => "registrations" }
   resources :conversations, only: [:index, :show, :new, :create] do
     member do
       post :reply
