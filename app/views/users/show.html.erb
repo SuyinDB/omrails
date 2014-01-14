@@ -17,7 +17,7 @@
 				</p>
 			<% else %>
 				<p>
-					<%= link_to 'Message ' + @user.name, new_conversation_path(:recipients => @user.username), class: "btn btn-primary" %> 
+					<%= link_to 'Message ' + @user.firstname, new_conversation_path(:recipients => @user.username), class: "btn btn-primary" %> 
 				</p>
 			<% end %>
 				<p>
