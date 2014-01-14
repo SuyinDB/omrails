@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  validates :name, :username, :email, presence: true
+  validates :firstname, :username, :email, presence: true
   validates :username, uniqueness: { case_sensitive: false }
 
   has_attached_file :avatar, :styles => {
@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
          :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :username, :name, :email, :avatar, :password, :password_confirmation, :remember_me
+  attr_accessible :username, :firstname, :surname, :email, :avatar, :password, :password_confirmation, :remember_me
   # attr_accessible :title, :body
 
   has_many :pins, :dependent => :destroy
