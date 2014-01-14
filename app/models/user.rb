@@ -2,7 +2,10 @@ class User < ActiveRecord::Base
   validates :name, :username, :email, presence: true
   validates :username, uniqueness: { case_sensitive: false }
 
-  has_attached_file :avatar, styles: { small: "280x"}
+  has_attached_file :avatar, :styles => {
+                                :thumb => "100x100#",
+                                :small  => "150x150>",
+                                :medium => "200x200" }
   validates_attachment :avatar, content_type: { content_type: ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'] },
                                size: { less_than: 5.megabytes }
 

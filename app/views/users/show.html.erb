@@ -1,31 +1,29 @@
 
 <section id="profilehead">
-	<div class="row">
-		<div class="span3">
+	<div class="row well">
+		<div class="span2">
 			<h1><%= if @user.avatar?
-								image_tag @user.avatar 
+								image_tag @user.avatar(:small) 
 							else
 								image_tag "no-image.png"
    						end %></h1>
 		</div>
 
-		<div class="span9">
-			<%if current_user != @user %>
+		<div class="span8">
+			<%if current_user == @user %>
+				<h2>My Profile</h2>
+				<p>
+					<strong> Email: </strong> <%= @user.email %>
+				</p>
+			<% else %>
 				<h2><%= @user.name %></h2>
 				<p>
 					<%= link_to 'Message ' + @user.name, new_conversation_path(:recipients => @user.username), class: "btn btn-primary" %> 
 				</p>
-
-			<% else %>
-				<h2>My Profile</h2>
-				<p>
-					<strong> My email: </strong> <%= @user.email %>
-				</p>
-				<p>
-					<strong> Date joined: </strong> <%= @user.created_at.to_formatted_s(:long) %>
-				</p>
-
 			<% end %>
+				<p>
+					<strong> Member since: </strong> <%= @user.created_at.strftime("%e %b %Y") %>
+				</p>
 
 		</div>
 	</div>
