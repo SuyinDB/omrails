@@ -3,7 +3,7 @@ ruby '1.9.3'
 
 gem 'rails', '3.2.12'
 gem 'jquery-rails'
-gem 'devise', '3.0.3'
+gem 'devise', '3.5.10'
 gem 'simple_form'
 gem 'paperclip', "~> 3.0"
 gem 'aws-sdk'
